@@ -23,7 +23,7 @@ const db = getFirestore(app);
 
 export { auth, db };
 
-export const signInFunc = (username, email, password) => {
+export const signUpFunc = (username, email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((cred) => {
       console.log("The User was created : ", cred.user);
