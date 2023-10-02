@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  signInWithEmailAndPassword,
   updateCurrentUser,
 } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
@@ -32,6 +33,16 @@ export const signUpFunc = (username, email, password) => {
           displayName: username,
         });
       }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export const signInFunc = (auth, email, password) => {
+  signInWithEmailAndPassword(auth, email, password)
+    .then((cred) => {
+      const user = cred.user;
     })
     .catch((error) => {
       console.log(error);
